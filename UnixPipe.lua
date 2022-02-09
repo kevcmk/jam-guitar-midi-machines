@@ -30,15 +30,12 @@ function OnNote(channel, pitch, velocity)
 end
 
 function OnStart(info)
-	-- assign a description to be displayed in the header
-	info.description = "This machine will log the number of notes used."
-	info.link = "http://jamorigin.com/midi-machine"
-	
-    -- Read Getting Started up to to see how to use this.
+	info.description = "This machine wil emit Notes and Aftertouches to a UNIX file handle."
+	info.link = "https://github.com/kevcmk/jam-guitar-midi-machines"
+
     fd = io.open("/tmp/midi_guitar_pipe", "a")
 end
 
 function OnStop()
     fd:close()
-	
 end
