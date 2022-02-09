@@ -20,18 +20,18 @@ After which you might write some Python3 that looks like:
 --]]
 
 function OnAfterTouch(channel, pitch, velocity)
-	fd:write(os.time(os.date("!*t")), ",aftertouch,", pitch, ",", velocity, "\n")
-	fd:flush()
+    fd:write(os.time(os.date("!*t")), ",aftertouch,", pitch, ",", velocity, "\n")
+    fd:flush()
 end
 
 function OnNote(channel, pitch, velocity)
-	fd:write(os.time(os.date("!*t")), ",note,", pitch, ",", velocity, "\n")
-	fd:flush()
+    fd:write(os.time(os.date("!*t")), ",note,", pitch, ",", velocity, "\n")
+    fd:flush()
 end
 
 function OnStart(info)
-	info.description = "This machine wil emit Notes and Aftertouches to a UNIX file handle."
-	info.link = "https://github.com/kevcmk/jam-guitar-midi-machines"
+    info.description = "This machine wil emit Notes and Aftertouches to a UNIX file handle."
+    info.link = "https://github.com/kevcmk/jam-guitar-midi-machines"
 
     fd = io.open("/tmp/midi_guitar_pipe", "a")
 end
